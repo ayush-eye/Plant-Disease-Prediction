@@ -1,8 +1,12 @@
 from tensorflow.keras.models import load_model
 
-MODEL_PATH = "my_model4.h5"
+import tensorflow as tf
 
-model = load_model(MODEL_PATH, compile=False)
+interpreter = tf.lite.Interpreter(model_path="model.tflite")
+interpreter.allocate_tensors()
+
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
 
 CLASS_MAPPING = {
     0: "Apple scab",
