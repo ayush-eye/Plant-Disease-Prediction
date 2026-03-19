@@ -2,7 +2,7 @@ from tensorflow.keras.models import load_model
 
 MODEL_PATH = "my_model4.h5"
 
-model = load_model(MODEL_PATH)
+model = load_model(MODEL_PATH, compile=False)
 
 CLASS_MAPPING = {
     0: "Apple scab",
