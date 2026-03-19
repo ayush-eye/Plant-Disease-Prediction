@@ -7,7 +7,9 @@ def predict_image(img):
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0) / 255.0
 
-    prediction = model.predict(img_array)
+    print("Before prediction")
+    prediction = model.predict(img_array, verbose=0)
+    print("After prediction")
     class_index = np.argmax(prediction, axis=1)[0]
     confidence = float(np.max(prediction))
 
